@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOC Policy Chatbot</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+<!-- Floating Toggle Button -->
+<div id="chatbotToggle" class="chatbot-toggle" title="NOC Policy Chatbot">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+  </svg>
+</div>
+
+<!-- Chat Window -->
+<div id="chatbotWindow" class="chatbot-window hidden">
+  <div class="chat-container">
+
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="header-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/>
+        </svg>
+      </div>
+      <div class="header-info">
+        <div class="header-title">NOC Policy Assistant</div>
+        <div class="header-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Online — Ready to help</span>
+        </div>
+      </div>
+      <div id="closeChat" class="close-btn" title="Close">✕</div>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatMessages" class="chat-messages"></div>
+
+    <!-- Input -->
+    <div class="chat-input">
+      <input id="questionInput" placeholder="Ask about company policies…" autocomplete="off">
+      <button id="sendBtn" type="button" title="Send">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://alcdn.msauth.net/browser/2.30.0/js/msal-browser.min.js"></script>
+<script src="auth.js"></script>
+<script src="chat.js"></script>
+
+<script>
+const toggle  = document.getElementById("chatbotToggle")
+const windowBox = document.getElementById("chatbotWindow")
+const closeBtn  = document.getElementById("closeChat")
+
+toggle.onclick = () => { windowBox.classList.remove("hidden") }
+closeBtn.onclick = () => { windowBox.classList.add("hidden") }
+</script>
+
+</body>
+</html>
